@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const serverless = require("serverless-http");
-const sequelize = require("./config/database"); // Ajuste o caminho relativo para o correto
+const sequelize = require("../config/database"); // Ajuste o caminho relativo para o correto
 
 const aguasRoutes = require("../routes/aguas"); // Ajuste o caminho relativo para o correto
 const solosRoute = require("../routes/solos");

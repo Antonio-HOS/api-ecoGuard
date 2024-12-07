@@ -1,16 +1,35 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "api/*.js",
-        "use": "@vercel/node"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/api/index.js"
-      }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "handler.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "routes/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/aguas",
+      "dest": "routes/aguas.js"
+    },
+    {
+      "src": "/solos",
+      "dest": "routes/solos.js"
+    },
+    {
+      "src": "/ares",
+      "dest": "routes/ares.js"
+    },
+    {
+      "src": "/denuncia",
+      "dest": "routes/denuncia.js"
+    },
+    {
+      "src": "/",
+      "dest": "handler.js"
+    }
+  ]
+}

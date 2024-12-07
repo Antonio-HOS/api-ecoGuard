@@ -1,19 +1,24 @@
 const serverless = require('serverless-http');
 const express = require('express');
 const app = express();
-const aguasRoutes = require("./routes/aguas"); // Ajuste o caminho relativo para o correto
+const aguasRoutes = require("./routes/aguas"); // Ajuste o caminho
 const solosRoutes = require("./routes/solos");
 const aresRoutes = require("./routes/ares");
 const denunciaRoutes = require("./routes/denuncia");
+const sequelize = require("./config/database"); // Ajuste o caminho
 
-// Middlewares e rotas do Express
-app.use('/aguas', aguasRoutes); // Usa rotas definidas no arquivo "./routes/aguas"
-app.use('/solos', solosRoutes); // Usa rotas definidas no arquivo "./routes/solos"
-app.use('/ares', aresRoutes); // Usa rotas definidas no arquivo "./routes/ares"
-app.use('/denuncia', denunciaRoutes); 
+// Sincronização do banco de dados
+sequelize
+  .sync()
+  .then(() => console.log("Database synchronized"))
+  .catch((err) => console.error("Unable to synchronize the database:", err));
 
+// Middlewares e rotas
+app.use(express.json());
+app.use('/aguas', aguasRoutes);
+app.use('/solos', solosRoutes);
+app.use('/ares', aresRoutes);
+app.use('/denuncia', denunciaRoutes);
 
-  // Exporta a função serverless
-  module.exports.api = serverless(app);
-// Exporta a função Express para o Serverless
-module.exports.api = serverless(app);
+// Exporta a aplicação como serverless
+module.exports = serverless(app);
