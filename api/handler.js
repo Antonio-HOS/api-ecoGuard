@@ -1,11 +1,11 @@
 const serverless = require('serverless-http');
 const express = require('express');
 const app = express();
-const aguasRoutes = require("./routes/aguas"); // Ajuste o caminho
-const solosRoutes = require("./routes/solos");
-const aresRoutes = require("./routes/ares");
-const denunciaRoutes = require("./routes/denuncia");
-const sequelize = require("./config/database"); // Ajuste o caminho
+const aguasRoutes = require("../routes/aguas"); // Ajuste o caminho
+const solosRoutes = require("../routes/solos");
+const aresRoutes = require("../routes/ares");
+const denunciaRoutes = require("../routes/denuncia");
+const sequelize = require("../config/database"); // Ajuste o caminho
 
 // Sincronização do banco de dados
 sequelize
