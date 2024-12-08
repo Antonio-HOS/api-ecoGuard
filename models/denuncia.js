@@ -15,6 +15,9 @@ const Denuncias = sequelize.define("Denuncias", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+}, {
+  tableName: "Denuncias", // Nome da tabela no banco de dados
 });
+
 
 module.exports = Denuncias;
