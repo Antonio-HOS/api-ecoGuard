@@ -2,15 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/handler.js",
-      "use": "@vercel/node"
+      "src": "api/index.js",
+      "use": "@now/node"
     }
   ],
   "routes": [
     {
-      "src": "(.*)",
-      "dest": "api/handler.js"
+      "src": "/(.*)",
+      "dest": "api/index.js"
     }
-    
   ]
 }
