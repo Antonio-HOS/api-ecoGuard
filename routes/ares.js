@@ -103,7 +103,7 @@ router.put("/:id", async (req, res) => {
     if (!updatedAr) {
       return res.status(404).json({ message: "Ar não encontrada" });
     }
-    res.json({ message: "Ar atualizada com sucesso", agua: updatedAr });
+    res.json({ message: "Ar atualizada com sucesso", Ar: updatedAr });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

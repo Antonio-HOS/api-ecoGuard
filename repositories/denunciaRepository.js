@@ -1,6 +1,4 @@
 
-
-const Denuncia = require("../models/denuncia");
 const Denuncias = require("../models/denuncia");
 
 async function getAllDenuncias() {
@@ -21,15 +19,13 @@ async function createDenuncia(dados) {
 }
 
 async function deleteDenuncia(id) {
-  const Denuncias = await Denuncia.findByPk(id);
-  if (Denuncias) {
-    await Denuncias.destroy();
-    return Denuncias;
+  const Denuncia = await Denuncia.findByPk(id);
+  if (Denuncia) {
+    await Denuncia.destroy();
+    return Denuncia;
   }
   return null;
 }
-
-
 
 module.exports = {
   getAllDenuncias,

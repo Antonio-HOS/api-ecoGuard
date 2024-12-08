@@ -1,11 +1,11 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+const { DataTypes } = require("sequelize");
+const sequelize = require("../config/database");
 
-const Denuncia = sequelize.define('Denuncia', {
+const Denuncias = sequelize.define("Denuncias", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
   },
   titulo: {
     type: DataTypes.STRING,
@@ -17,4 +17,4 @@ const Denuncia = sequelize.define('Denuncia', {
   },
 });
 
-module.exports = Denuncia;
+module.exports = Denuncias;
