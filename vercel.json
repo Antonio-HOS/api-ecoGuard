@@ -4,32 +4,13 @@
     {
       "src": "api/handler.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "routes/**/*.js",
-      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/aguas",
-      "dest": "routes/aguas.js"
-    },
-    {
-      "src": "/solos",
-      "dest": "routes/solos.js"
-    },
-    {
-      "src": "/ares",
-      "dest": "routes/ares.js"
-    },
-    {
-      "src": "/denuncia",
-      "dest": "routes/denuncia.js"
-    },
-    {
-      "src": "/",
-      "dest": "handler.js"
+      "src": "(.*)",
+      "dest": "api/handler.js"
     }
+    
   ]
 }
