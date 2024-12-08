@@ -1,34 +1,14 @@
-require('dotenv').config();
+const { Sequelize } = require('sequelize');
 
-module.exports = {
-  development: {
-    url: process.env.DATABASE_URL,
-    dialect: 'postgres',
-    dialectOptions: {
-      ssl: {
-        require: true, // Exigir SSL para Neon
-        rejectUnauthorized: false, // Aceitar certificados auto-assinados
-      },
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  dialect: 'postgres',
+  dialectOptions: {
+    ssl: {
+      require: true, // Exigir SSL para Neon
+      rejectUnauthorized: false, // Aceitar certificados auto-assinados
     },
   },
-  test: {
-    url: process.env.DATABASE_URL, // Você pode definir outro banco para testes
-    dialect: 'postgres',
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
-    },
-  },
-  production: {
-    url: process.env.DATABASE_URL, // Usará a URL definida no ambiente de produção
-    dialect: 'postgres',
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
-    },
-  },
-};
+});
+
+module.exports = sequelize;
+
