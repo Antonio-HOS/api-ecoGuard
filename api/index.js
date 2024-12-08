@@ -10,7 +10,7 @@ const cors = require("cors");
 //// Sincronização do banco de dados
 app.use(
   cors({
-    origin: "http://localhost:3000", // Permite requisições apenas de localhost:3000
+    origin: "ecoguard-three.vercel.app", // Permite requisições apenas de localhost:3000
     methods: ["GET", "POST", "PUT", "DELETE"], // Permite métodos específicos
     allowedHeaders: ["Content-Type", "Authorization"], // Permite cabeçalhos específicos
   })
