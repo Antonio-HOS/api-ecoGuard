@@ -37,12 +37,12 @@ async function deleteSolo(id) {
 }
 
 async function updateSolo(id, dadosAtualizados) {
-  const Solos = await Solos.findByPk(id);
-  if (Solos) {
+  const solo = await Solos.findByPk(id);
+  if (solo) {
     const { regiao, cidade, tipo, dado, comentario } = dadosAtualizados;
-    Solos.set({ regiao, cidade, tipo, dado, comentario });
-    await Solos.save();
-    return Solos;
+    solo.set({ regiao, cidade, tipo, dado, comentario });
+    await solo.save();
+    return solo;
   }
   return null;
 }

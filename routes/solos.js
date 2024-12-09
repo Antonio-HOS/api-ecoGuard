@@ -99,10 +99,10 @@ router.put("/:id", async (req, res) => {
             dado,
             comentario,
         });
-        if (!updateSolo) {
+        if (!updetedSolo) {
             return res.status(404).json({ message: "Solo não encontrada" });
         }
-        res.json({ message: "Solo atualizada com sucesso", solo: updateSolo });
+        res.json({ message: "Solo atualizada com sucesso", solo: updetedSolo });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
